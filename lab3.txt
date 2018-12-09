@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Lab program 3 </title>
+	<style>
+	p {
+		position: absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+	}
+	</style>
+</head>
+<body>
+	<p id="demo"></p>
+	<script>
+		var interval = setInterval(inTimer,1000);
+		var fs = 5;
+		var id = document.getElementById("demo");
+		function inTimer() {
+			id.innerHTML = "TEXT GROWING";
+			id.setAttribute('style',"font-size:"+fs+"px;color:red");
+			fs += 5;
+			if(fs >= 50){
+				clearInterval(interval);
+				var2 = setInterval(deTimer,1000);
+			}
+		}
+		function deTimer(){
+			fs -= 5;
+			id.innerHTML = "TEXT SHRINKING";
+			id.setAttribute('style',"font-size:"+fs+"px;color:blue");
+			if(fs === 5){
+				clearInterval(var2);
+			}
+		}
+	</script>
+</body>
+</html>
